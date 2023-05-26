@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface TermineRepository extends JpaRepository<Termine, Long> {
     //@Query("SELECT t FROM Termine t WHERE t.terminDatum=?1")
-    @Query(nativeQuery = true, value="SELECT CASE WHEN COUNT(t) > 0 THEN true ELSE false END FROM Termine t WHERE t.termin_datum = :termin_datum")
+    @Query(nativeQuery = true, value="SELECT CASE WHEN COUNT(t.termin_datum) > 0 THEN true ELSE false END FROM Termine t WHERE t.termin_datum = :termin_datum")
 
     Boolean existsTerminByDatum(@Param("termin_datum") LocalDateTime termin_datum);
     @Query("SELECT t FROM Termine t WHERE t.zeit=?1")

@@ -19,25 +19,27 @@ class TermineRepositoryTest {
     @Autowired
     private TermineRepository underTest;
 
+/*
     @AfterEach
     void cleaner_test(){
         underTest.deleteAll();
     }
+*/
 
 
-/*  *//*  @Test
+    @Test
     void checksWhetherDatumExists() {
         // given
         Patient patient = new Patient(397222222222L);
         Doktor doktor = new Doktor(1L);
-        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.parse("2019-12-15T15:14:21.629");
         Termine termin = new Termine(now, "9.30");
         underTest.save(termin);
         // when
-        boolean expected = underTest.existsTerminByDatum(termin.getTerminDatum());
-        /* then *//*
+        Boolean expected = underTest.existsTerminByDatum(termin.getTerminDatum());
+        //then
         assertThat(expected).isTrue();
-    }*/
+    }
     @Test
     void checkWhetherTerminZeitExists() {
         //given
